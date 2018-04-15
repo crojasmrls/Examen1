@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
 
@@ -17,7 +18,7 @@ int main(int argc, char const *argv[])
 
 	printf("Indtrodusca el número de procesos hijo a crear: ");
 	scanf("%d", &children);
-	pipeptr= calloc(children+1,sizeof(integer));
+	pipeptr= calloc(children+1,sizeof(ppid));
 	pipe(pipeptr);//Se declara la tuberia	
 
 	pid=fork();//Se crea un proceso hijo
