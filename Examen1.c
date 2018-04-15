@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
 	int ppid;
 	int children;
 	int *pipeptr;//Puntero a la tuberia
-	int message;
+
 
 
 	printf("Indtrodusca el número de procesos hijo a crear: ");
@@ -30,7 +30,8 @@ int main(int argc, char const *argv[])
 		printf("Parent: Hello from parent!!, my id is: %d\n", ppid);	
 	} else if (pid==0)
 	{
-		close (*pipeptr);
+		int message;
+		//close (*pipeptr);
 		sleep(2);
 		ppid=getpid();
 		printf("Child: Hello from child!!, my id is: %d\n",ppid);
