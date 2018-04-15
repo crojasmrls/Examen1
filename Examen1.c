@@ -24,10 +24,7 @@ int main(int argc, char const *argv[])
 	pid=fork();//Se crea un proceso hijo
 
 	if(pid>0){//Este es el proceso padre
-		for (int i = 1; i < children+1; ++i)
-		{
-			close(*(pipeptr+i));
-		}
+		close(*(pipeptr+1));
 		ppid=getpid();
 		n=write(*pipeptr,&ppid,sizeof(ppid));//Escribe el id del niño en la tuberia
 		printf("Parent: Hello from parent!!, my id is: %d\n", ppid);	
@@ -35,10 +32,6 @@ int main(int argc, char const *argv[])
 	{
 		close (*pipeptr);
 		sleep(2);
-		for (int i = 2; i < children+1; ++i)
-		{
-			close(*(pipeptr+i));
-		}
 		ppid=getpid();
 		printf("Child: Hello from child!!, my id is: %d\n",ppid);
 		n=read(*pipeptr, &message,sizeof(message));
