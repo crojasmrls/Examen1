@@ -38,6 +38,7 @@ int main(int argc, char const *argv[])
 		{
 			close(*(pipeptr+i));
 		}
+		close (*pipeptr);
 		ppid=getpid();
 		printf("Child: Hello from child!!, my id is: %d\n",ppid);
 		n=read(*pipeptr, &message,sizeof(message));
