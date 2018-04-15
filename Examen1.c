@@ -28,7 +28,7 @@ int main(int argc, char const *argv[])
 		ppid=getpid();
 		printf("Child: Hello from child!!, my id is: %d\n",ppid);
 		printf("Child: Sending message to the pipe\n");
-		n=write(pp[1], $message, sizeof(message));
+		n=write(pp[1], &message, sizeof(message));
 	}else{
 		printf("ERROR at fork\n");
 	}
