@@ -25,20 +25,20 @@ int main(int argc, char const *argv[])
 	if(pid>0){//Este es el proceso padre
 		for (int i = 1; i < children+1; ++i)
 		{
-			close(pipeptr+i);
+			close(*(pipeptr+i));
 		}
 		ppid=getpid();
-		n=write(pipeptr,&ppid,sizeof(ppid));//Escribe el id del niño en la tuberia
+		n=write(*pipeptr,&ppid,sizeof(ppid));//Escribe el id del niño en la tuberia
 		printf("Parent: Hello from parent!!, my id is: %d\n", ppid);	
 	} else if (pid==0)
 	{
 		for (int i = 2; i < children+1; ++i)
 		{
-			close(pipeptr+i);
+			close(*(pipeptr+i));
 		}
 		ppid=getpid();
 		printf("Child: Hello from child!!, my id is: %d\n",ppid);
-		n=read(pipeptr, &message,sizeof(message));
+		n=read(*pipeptr, &message,sizeof(message));
 		printf("Child: Parent pid: %d\n", message);
 	}else{
 		printf("ERROR at fork\n");
