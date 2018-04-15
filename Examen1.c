@@ -33,12 +33,12 @@ int main(int argc, char const *argv[])
 		printf("Parent: Hello from parent!!, my id is: %d\n", ppid);	
 	} else if (pid==0)
 	{
+		close (*pipeptr);
 		sleep(2);
 		for (int i = 2; i < children+1; ++i)
 		{
 			close(*(pipeptr+i));
 		}
-		close (*pipeptr);
 		ppid=getpid();
 		printf("Child: Hello from child!!, my id is: %d\n",ppid);
 		n=read(*pipeptr, &message,sizeof(message));
