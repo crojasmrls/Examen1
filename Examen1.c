@@ -22,21 +22,22 @@ int main(int argc, char const *argv[])
 	scanf("%d", &children);
 	ppid=getpid();
 	printf("Parent: Hello from parent!!, my id is: %d\n", ppid);	
-	//pipe(&pipeptr[0]);//Se declara la tuberia	
 	while(children!=0&&ppid==getpid()){
 		children=children-1;
 		pid=fork();
 		if (pid==0)
 		{
-			delay=(rand()%10)+1;
+
 			cpid=getpid();
 		}
 	}
 	if (cpid==getpid())
 	{
-		sleep(delay);
+		sleep(1);
+		delay=rand()%10;
+		sleep(delay+1);
 		printf("Child: Hello from child!!, my id is: %d\n",cpid);
-		printf("Child: I have been slept for %d seconds\n",delay );
+		printf("Child: I have been slept for %d seconds\n",delay +1 );
 	}
 	return 0;
 }
