@@ -34,7 +34,7 @@ int main(int argc, char const *argv[])
 			if (pid==0)
 			{
 				children-=1;
-				pid=fork;
+				pid=fork();
 			}
 		}
 		int delay=(rand()%30)+1;
