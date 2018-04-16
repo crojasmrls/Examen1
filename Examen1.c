@@ -33,7 +33,7 @@ int main(int argc, char const *argv[])
 		while(children!=0){
 			if (pid==0)
 			{
-				children-=1;
+				children=children-1;
 				pid=fork();
 			}
 		}
