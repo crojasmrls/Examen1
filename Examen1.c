@@ -11,6 +11,7 @@ int main(int argc, char const *argv[])
 	int cpid;
 	int ppid;
 	int children;
+	srand(time(NULL)); 
 //	int pipeptr[2];//Puntero a la tuberia
 
 
