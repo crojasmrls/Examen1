@@ -8,9 +8,10 @@
 int main(int argc, char const *argv[])
 {
 	
-	int pid=0;//Variables para guardar id
+	int pid;//Variables para guardar id
 	int ppid;
-	int children;
+	int cpid;
+	//int children;
 	srand(time(NULL)); 
 //	int pipeptr[2];//Puntero a la tuberia
 
