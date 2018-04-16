@@ -11,7 +11,7 @@ int main(int argc, char const *argv[])
 	int pid;//Variables para guardar id
 	int ppid;
 	int cpid;
-	//int children;
+	int children;
 	srand(time(NULL)); 
 //	int pipeptr[2];//Puntero a la tuberia
 
