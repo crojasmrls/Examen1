@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
 	int cpid;
 	int children;
 	int delay;
-	//
+	srand(time(NULL)); 
 //	int pipeptr[2];//Puntero a la tuberia
 
 
@@ -33,12 +33,15 @@ int main(int argc, char const *argv[])
 	}
 	if (cpid==getpid())
 	{
-		sleep(1);
-		srand(time(NULL)); 
+		for (int i = 0; i < cpid; ++i)
+		{
+			rand();
+		}
+
 		delay=rand()%11;
-		sleep(delay+1);
+		sleep(delay);
 		printf("Child: Hello from child!!, my id is: %d\n",cpid);
-		printf("Child: I have been slept for %d seconds\n",delay +1 );
+		printf("Child: I have been slept for %d seconds\n",delay);
 	}
 	return 0;
 }
