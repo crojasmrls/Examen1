@@ -12,7 +12,7 @@ int main(int argc, char const *argv[])
 	printf("Indtrodusca el numero de procesos hijo a crear: ");
 	scanf("%d", &nchildren);
 	ppid=getpid();
-	printf("Parent: Hello from parent!!, my id is: %d\n", ppid);	
+	printf("Hello from parent!!, my id is: %d\n", ppid);	
 	while(nchildren!=0&&ppid==getpid()){
 		nchildren=nchildren-1;
 		pid=fork();
@@ -27,7 +27,7 @@ int main(int argc, char const *argv[])
 			rand();
 		int delay=rand()%11;
 		sleep(delay);
-		printf("Child: Hello from child!!, my id is: %d\nChild: I have been slept for %d seconds\n",cpid,delay);
+		printf("Hello from child!!, my id is: %d, i have been slept for %d seconds\n",cpid,delay);
 	}
 	return 0;
 }
