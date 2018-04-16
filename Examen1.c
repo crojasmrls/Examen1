@@ -25,17 +25,17 @@ int main(int argc, char const *argv[])
 	//pipe(&pipeptr[0]);//Se declara la tuberia	
 	while(children!=0&&ppid==getpid()){
 		children=children-1;
-		delay=(rand()%10)+1;
 		pid=fork();
 		if (pid==0)
 		{
+			delay=(rand()%10)+1;
 			cpid=getpid();
 		}
 	}
 	if (cpid==getpid())
 	{
 		sleep(delay);
-		printf("Child: Hello from child!!, my id is: %d\n",ppid);
+		printf("Child: Hello from child!!, my id is: %d\n",cpid);
 		printf("Child: I have been slept for %d seconds\n",delay );
 	}
 	return 0;
