@@ -12,7 +12,7 @@ int main(int argc, char const *argv[])
 	int ppid;
 	int cpid;
 	int children;
-	//srand(time(NULL)); 
+	//
 //	int pipeptr[2];//Puntero a la tuberia
 
 
@@ -32,6 +32,7 @@ int main(int argc, char const *argv[])
 	}
 	if (cpid==getpid())
 	{
+		srand(time(NULL)); 
 		int delay=(rand()%10)+1;
 		sleep(delay);
 		printf("Child: Hello from child!!, my id is: %d\n",ppid);
