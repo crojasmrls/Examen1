@@ -9,7 +9,6 @@ int main(int argc, char const *argv[])
 	
 	int pid;//Variables para guardar id
 	int cpid;
-	int n;
 	int ppid;
 	int children;
 	int pipeptr[2];//Puntero a la tuberia
@@ -23,12 +22,14 @@ int main(int argc, char const *argv[])
 	pid=fork();//Se crea un proceso hijo
 
 	if(pid>0){//Este es el proceso padre
+		int n;
 		close(pipeptr[1]);
 		ppid=getpid();
 		n=write(pipeptr[0],&ppid,sizeof(ppid));//Escribe el id del niño en la tuberia
 		printf("Parent: Hello from parent!!, my id is: %d\n", ppid);	
 	} else if (pid==0)
 	{
+		int n;
 		int message;
 		close (pipeptr[0]);
 		sleep(2);
