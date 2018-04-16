@@ -23,14 +23,14 @@ int main(int argc, char const *argv[])
 	pid=fork();
 	//pipe(&pipeptr[0]);//Se declara la tuberia	
 	while(children!=0){
-		if (pid==0)
+		if (ppid==getpid())
 		{
-			ppid=getpid();
 			children=children-1;
 			pid=fork();
 			if (pid==0)
 			{
-				int delay=(rand()%30)+1;
+				ppid=getpid();
+				int delay=(rand()%10)+1;
 				sleep(delay);
 				printf("Child: Hello from child!!, my id is: %d\n",ppid);
 				printf("Child: I have been slept for %d seconds\n",delay );
