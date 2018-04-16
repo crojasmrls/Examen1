@@ -12,6 +12,7 @@ int main(int argc, char const *argv[])
 	int ppid;
 	int cpid;
 	int children;
+	int delay;
 	//
 //	int pipeptr[2];//Puntero a la tuberia
 
@@ -24,6 +25,7 @@ int main(int argc, char const *argv[])
 	//pipe(&pipeptr[0]);//Se declara la tuberia	
 	while(children!=0&&ppid==getpid()){
 		children=children-1;
+		delay=(rand()%10)+1;
 		pid=fork();
 		if (pid==0)
 		{
@@ -32,8 +34,6 @@ int main(int argc, char const *argv[])
 	}
 	if (cpid==getpid())
 	{
-		srand(time(NULL)); 
-		int delay=(rand()%10)+1;
 		sleep(delay);
 		printf("Child: Hello from child!!, my id is: %d\n",ppid);
 		printf("Child: I have been slept for %d seconds\n",delay );
