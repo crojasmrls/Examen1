@@ -34,7 +34,7 @@ int main(int argc, char const *argv[])
 		sleep(2);
 		ppid=getpid();
 		printf("Child: Hello from child!!, my id is: %d\n",ppid);
-		n=read(pipeptr[0], &message,sizeof(message));
+		n=read(pipeptr[1], &message,sizeof(message));
 		printf("Child: Parent pid: %d\n", message);
 	}else{
 		printf("ERROR at fork\n");
