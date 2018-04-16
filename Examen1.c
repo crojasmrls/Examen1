@@ -28,10 +28,13 @@ int main(int argc, char const *argv[])
 			ppid=getpid();
 			children=children-1;
 			pid=fork();
-			int delay=(rand()%30)+1;
-			sleep(delay);
-			printf("Child: Hello from child!!, my id is: %d\n",ppid);
-			printf("Child: I have been slept for %d seconds\n",delay );
+			if (pid==0)
+			{
+				int delay=(rand()%30)+1;
+				sleep(delay);
+				printf("Child: Hello from child!!, my id is: %d\n",ppid);
+				printf("Child: I have been slept for %d seconds\n",delay );
+			}
 		}
 	}
 	return 0;
