@@ -9,10 +9,10 @@ int main(int argc, char const *argv[])
 	int ppid;//parent processes id
 	int cpid;// child processes id
 	int nchildren;//numero de procesos hijo
-	printf("Indtrodusca el numero de procesos hijo a crear: ");
-	scanf("%d", &nchildren);
 	ppid=getpid();
 	printf("Hello from parent!!, my id is: %d\n", ppid);	
+	printf("Indtroduzca el numero de procesos hijo a crear: ");
+	scanf("%d", &nchildren);
 	while(nchildren!=0&&ppid==getpid()){
 		nchildren=nchildren-1;
 		pid=fork();
@@ -25,7 +25,7 @@ int main(int argc, char const *argv[])
 	{
 		for (int i = 0; i < cpid; ++i)
 			rand();
-		int delay=rand()%11;
+		int delay=rand()%31;
 		sleep(delay);
 		printf("Hello from child!!, my id is: %d, i have been slept for %d seconds\n",cpid,delay);
 	}
