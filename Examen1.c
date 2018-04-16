@@ -25,10 +25,13 @@ int main(int argc, char const *argv[])
 	while(children!=0&&ppid==getpid()){
 		children=children-1;
 		pid=fork();
+		if (pid==0)
+		{
+			cpid=getpid();
+		}
 	}
-	if (pid==0)
+	if (cpid==getpid())
 	{
-		cpid=getpid();
 		int delay=(rand()%10)+1;
 		sleep(delay);
 		printf("Child: Hello from child!!, my id is: %d\n",ppid);
