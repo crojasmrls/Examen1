@@ -12,7 +12,7 @@ int main(int argc, char const *argv[])
 	int ppid;
 	int cpid;
 	int children;
-	srand(time(NULL)); 
+	//srand(time(NULL)); 
 //	int pipeptr[2];//Puntero a la tuberia
 
 
