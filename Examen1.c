@@ -34,7 +34,8 @@ int main(int argc, char const *argv[])
 	if (cpid==getpid())
 	{
 		sleep(1);
-		delay=rand()%10;
+		srand(time(NULL)); 
+		delay=rand()%11;
 		sleep(delay+1);
 		printf("Child: Hello from child!!, my id is: %d\n",cpid);
 		printf("Child: I have been slept for %d seconds\n",delay +1 );
